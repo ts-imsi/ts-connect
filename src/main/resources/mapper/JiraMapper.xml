@@ -5,4 +5,54 @@
     <select id="selectHosList" resultType="com.transen.tsconnect.model.HospitalVo">
         select ID,CUSTOMFIELD,CUSTOMFIELDCONFIG,CUSTOMVALUE from customfieldoption where CUSTOMFIELD=10907 or CUSTOMFIELD=10200
     </select>
+
+    <select id="selectUserList" resultType="com.transen.tsconnect.model.UserVo">
+        select user_name,last_name,email_address from cwd_user where active =1
+    </select>
+
+    <select id="selectAnalysisListByHos" parameterType="com.transen.tsconnect.model.HospitalAnalysisVo"
+            resultType="com.transen.tsconnect.model.HospitalAnalysisVo">
+        SELECT
+			va.ID,
+			va.ISSUE,
+			va.CUSTOMFIELD,
+			va.STRINGVALUE,
+		    ji.pkey,
+			ji.PROJECT,
+			ji.issuetype,
+			ji.SUMMARY,
+			ji.DESCRIPTION,
+			cus.customvalue
+		FROM
+			customfieldvalue va,
+			jiraissue ji,
+			customfieldoption cus
+		WHERE
+			ji.ID = va.ISSUE
+			AND cus.ID = va.STRINGVALUE
+			AND va.CUSTOMFIELD = 10907
+			<if test="stringValue!=null"> and va.STRINGVALUE = #{stringValue}</if>
+		    <if test="customValue!=null"> and cus.customvalue = #{customValue} </if>
+    </select>
+	
+	<select id="selectAanlyByPrefix" parameterType="Map" resultType="com.transen.tsconnect.model.HospitalAnalysisVo">
+		SELECT
+			va.ID,
+			va.ISSUE,
+			va.CUSTOMFIELD,
+			va.STRINGVALUE,
+  			ji.pkey,
+			ji.PROJECT,
+			ji.issuetype,
+			ji.SUMMARY,
+			ji.DESCRIPTION
+			FROM
+			dbo.customfieldvalue va,
+			dbo.jiraissue ji
+			WHERE
+				ji.ID = va.ISSUE
+				AND va.CUSTOMFIELD ='10400'
+		<if test="prefix!=null"> and va.stringvalue like '%'+#{prefix}+'%'</if>
+		<if test="version!=null"> and va.stringvalue like '%'+#{version}+'%'</if>
+			</select>
 </mapper>
