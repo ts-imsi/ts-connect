@@ -24,8 +24,9 @@ public class JiraService {
     JiraMapper jiraMapper;
 
     public List<HospitalVo> selectHosList(){
-        return jiraMapper.selectHosList();
+        return  jiraMapper.selectHosList();
     }
+
 
 
 }
