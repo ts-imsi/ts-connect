@@ -95,6 +95,13 @@ public class JiraController {
                 result.setSuccess(false);
                 result.setMessage("参数错误");
             }else{
+                Optional<String> preOp=Optional.ofNullable(param.get("prefix"));
+                Optional<String> verOp=Optional.ofNullable(param.get("version"));
+                if(!preOp.isPresent()||!verOp.isPresent()){
+                    result.setSuccess(false);
+                    result.setMessage("参数错误");
+                    return result;
+                }
                 List<HospitalAnalysisVo> hospitalAnalysisVos=jiraService.selectAanlyByPrefix(param);
                 result.setObject(hospitalAnalysisVos);
                 result.setSuccess(true);
