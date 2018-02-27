@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.transen.tsconnect.dao.JiraMapper">
+<mapper namespace="cn.trasen.tsconnect.dao.JiraMapper">
 
-    <select id="selectHosList" resultType="com.transen.tsconnect.model.HospitalVo">
+    <select id="selectHosList" resultType="cn.trasen.tsconnect.model.HospitalVo">
         select ID,CUSTOMFIELD,CUSTOMFIELDCONFIG,CUSTOMVALUE from customfieldoption where CUSTOMFIELD=10907 or CUSTOMFIELD=10200
     </select>
 
-    <select id="selectUserList" resultType="com.transen.tsconnect.model.UserVo">
+    <select id="selectUserList" resultType="cn.trasen.tsconnect.model.UserVo">
         select user_name,last_name,email_address from cwd_user where active =1
     </select>
 
-    <select id="selectAnalysisListByHos" parameterType="com.transen.tsconnect.model.HospitalAnalysisVo"
-            resultType="com.transen.tsconnect.model.HospitalAnalysisVo">
+    <select id="selectAnalysisListByHos" parameterType="cn.trasen.tsconnect.model.HospitalAnalysisVo"
+            resultType="cn.trasen.tsconnect.model.HospitalAnalysisVo">
         SELECT
 			va.ID,
 			va.ISSUE,
@@ -35,7 +35,7 @@
 		    <if test="customValue!=null"> and cus.customvalue = #{customValue} </if>
     </select>
 	
-	<select id="selectAanlyByPrefix" parameterType="Map" resultType="com.transen.tsconnect.model.HospitalAnalysisVo">
+	<select id="selectAanlyByPrefix" parameterType="Map" resultType="cn.trasen.tsconnect.model.HospitalAnalysisVo">
 		SELECT
 			va.ID,
 			va.ISSUE,

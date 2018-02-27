@@ -1,9 +1,9 @@
-package com.transen.tsconnect.dao;
+package cn.trasen.tsconnect.dao;
 
-import com.transen.tsconnect.model.HospitalAnalysisVo;
-import com.transen.tsconnect.model.HospitalVo;
-import com.transen.tsconnect.model.UserVo;
-import com.transen.tsconnect.util.MyMapper;
+import cn.trasen.tsconnect.model.HospitalAnalysisVo;
+import cn.trasen.tsconnect.model.UserVo;
+import cn.trasen.tsconnect.model.HospitalVo;
+import cn.trasen.tsconnect.util.MyMapper;
 
 import java.util.List;
 import java.util.Map;

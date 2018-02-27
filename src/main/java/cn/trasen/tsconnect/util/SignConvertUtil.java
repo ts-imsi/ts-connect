@@ -1,4 +1,4 @@
-package com.transen.tsconnect.util;
+package cn.trasen.tsconnect.util;
 
 import org.apache.log4j.Logger;
 

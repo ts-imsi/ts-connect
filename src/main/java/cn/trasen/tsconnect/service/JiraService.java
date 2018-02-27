@@ -1,9 +1,9 @@
-package com.transen.tsconnect.service;
+package cn.trasen.tsconnect.service;
 
-import com.transen.tsconnect.dao.JiraMapper;
-import com.transen.tsconnect.model.HospitalAnalysisVo;
-import com.transen.tsconnect.model.HospitalVo;
-import com.transen.tsconnect.model.UserVo;
+import cn.trasen.tsconnect.dao.JiraMapper;
+import cn.trasen.tsconnect.model.HospitalAnalysisVo;
+import cn.trasen.tsconnect.model.UserVo;
+import cn.trasen.tsconnect.model.HospitalVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

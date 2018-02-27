@@ -1,4 +1,4 @@
-package com.transen.tsconnect.model;
+package cn.trasen.tsconnect.model;
 
 import lombok.Getter;
 import lombok.Setter;

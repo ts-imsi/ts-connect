@@ -1,8 +1,8 @@
-package com.transen.tsconnect.common;
+package cn.trasen.tsconnect.common;
 
+import cn.trasen.tsconnect.util.PropertiesUtils;
+import cn.trasen.tsconnect.util.SignConvertUtil;
 import com.alibaba.fastjson.JSONObject;
-import com.transen.tsconnect.util.PropertiesUtils;
-import com.transen.tsconnect.util.SignConvertUtil;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
