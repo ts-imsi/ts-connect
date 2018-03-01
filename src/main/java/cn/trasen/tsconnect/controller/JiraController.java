@@ -31,6 +31,11 @@ public class JiraController {
     @Autowired
     JiraService jiraService;
 
+    /**
+     *@author luoyun
+     *@deprecated 查询医院列表
+     *
+     */
     @PostMapping(value="/selectHosList")
     public Result selectHosList(){
         Result result=new Result();
@@ -46,6 +51,11 @@ public class JiraController {
         return result;
     }
 
+    /**
+     *@author luoyun
+     *@deprecated jira人员数据查询
+     *
+     */
     @PostMapping(value="/selectUserList")
     public Result selectUserList(){
         Result result=new Result();
@@ -61,6 +71,12 @@ public class JiraController {
         return result;
     }
 
+    /**
+     *@author luoyun
+     *@deprecated 根据医院查询需求列表
+     * @param  param customValue 医院名称  stringValue 医院编号
+     *
+     */
     @PostMapping(value="/selectAnalysisListByHos")
     public Result selectAnalysisListByHos(@RequestBody Map<String,String> param){
         Result result=new Result();
@@ -87,6 +103,12 @@ public class JiraController {
         return result;
     }
 
+    /**
+     *@author luoyun
+     *@deprecated 根据医院查询需求列表
+     * @param  param prefix 前缀  version 版本号
+     *
+     */
     @PostMapping(value = "/selectAanlyByPrefix")
     public Result selectAanlyByPrefix(@RequestBody Map<String,String> param){
         Result result=new Result();
