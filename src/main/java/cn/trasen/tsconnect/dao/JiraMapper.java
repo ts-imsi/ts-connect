@@ -19,6 +19,8 @@ public interface JiraMapper extends MyMapper<HospitalVo> {
 
     List<UserVo> selectUserList();
 
+    UserVo selectUserByName(UserVo userVo);
+
     List<HospitalAnalysisVo> selectAnalysisListByHos(HospitalAnalysisVo hospitalAnalysisVo);
 
     List<HospitalAnalysisVo> selectAanlyByPrefix(Map<String,String> param);

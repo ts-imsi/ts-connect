@@ -7,8 +7,12 @@
     </select>
 
     <select id="selectUserList" resultType="cn.trasen.tsconnect.model.UserVo">
-        select user_name,last_name,email_address from cwd_user where active =1
+        select id,user_name,last_name,email_address,pwd from cwd_user where active =1
     </select>
+
+	<select id="selectUserByName" resultType="cn.trasen.tsconnect.model.UserVo" parameterType="cn.trasen.tsconnect.model.UserVo">
+		select id,user_name,last_name,email_address,pwd from cwd_user where active =1 and user_name=#{userName}
+	</select>
 
     <select id="selectAnalysisListByHos" parameterType="cn.trasen.tsconnect.model.HospitalAnalysisVo"
             resultType="cn.trasen.tsconnect.model.HospitalAnalysisVo">

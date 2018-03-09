@@ -42,6 +42,8 @@ public class JiraService {
         return jiraMapper.selectAanlyByPrefix(param);
     }
 
-
+    public UserVo selectUserByName(UserVo userVo){
+        return jiraMapper.selectUserByName(userVo);
+    }
 
 }

@@ -8,10 +8,7 @@ import cn.trasen.tsconnect.service.JiraService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -63,6 +60,34 @@ public class JiraController {
             List<UserVo> userVoList=jiraService.selectUserList();
             result.setObject(userVoList);
             result.setSuccess(true);
+        }catch (Exception e){
+            logger.error("用户数据查询失败"+e.getMessage(),e);
+            result.setSuccess(false);
+            result.setMessage("用户数据查询失败");
+        }
+        return result;
+    }
+
+    /**
+     *@author luoyun
+     *@deprecated 通过用户名查询jira单个用户
+     * @param  userName 用户名
+     */
+    @PostMapping(value="/selectUserByName/{userName}")
+    public Result selectUserByName(@PathVariable String userName){
+        Result result=new Result();
+        try{
+            Optional<String> opName=Optional.ofNullable(userName);
+            if(opName.isPresent()){
+                UserVo us=new UserVo();
+                us.setUserName(opName.get());
+                UserVo userVo=jiraService.selectUserByName(us);
+                result.setObject(userVo);
+                result.setSuccess(true);
+            }else{
+                result.setMessage("参数传入失败");
+                result.setSuccess(false);
+            }
         }catch (Exception e){
             logger.error("用户数据查询失败"+e.getMessage(),e);
             result.setSuccess(false);
